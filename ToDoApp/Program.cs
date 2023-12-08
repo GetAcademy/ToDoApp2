@@ -9,7 +9,7 @@ class Program
      */
     static void Main(string[] args)
     {
-        var tasks = new TaskCollection();
+        var tasks = new TodoApp();
 
         while (true)
         {
@@ -37,7 +37,7 @@ class Program
         return cmd;
     }
 
-    private static void MarkTaskIsDone(TaskCollection tasks)
+    private static void MarkTaskIsDone(TodoApp tasks)
     {
         Console.WriteLine("Hvilken oppgave vil du markere fullført? (skriv inn nr til oppgaven)");
         var taskNoStr = Console.ReadLine();
@@ -52,7 +52,7 @@ class Program
         }
     }
 
-    private static void AddTask(TaskCollection myTasks)
+    private static void AddTask(TodoApp myTasks)
     {
         Console.WriteLine("skriv inn navn:");
         var name = Console.ReadLine();

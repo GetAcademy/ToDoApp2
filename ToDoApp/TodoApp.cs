@@ -1,6 +1,6 @@
 ﻿namespace ToDoApp
 {
-    internal class TaskCollection
+    internal class TodoApp
     {
         private List<Task> _tasks = CreateTasks();
 
@@ -8,9 +8,12 @@
         {
             Console.WriteLine("Oppgave:  Frist:    Fullført:");
             Console.WriteLine();
-            foreach (var task in _tasks)
+            for (var index = 0; index < _tasks.Count; index++)
             {
-                if (task.isDone)
+                var task = _tasks[index];
+                var taskNo = index + 1;
+                Console.Write(taskNo + ": ");
+                if (task.IsDone)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     CreateTaskText(task);
@@ -21,6 +24,7 @@
                     CreateTaskText(task);
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -29,36 +33,19 @@
             return _tasks.Count;
         }
 
-        private static void CreateTaskText(ToDoApp.Task task)
+        private static void CreateTaskText(Task task)
         {
             Console.Write(task.Name.PadRight(10));
             Console.Write(task.DueDate.ToString("dd/MM/yy"));
-            Console.WriteLine(task.isDone ? $"    Ja" : "   Nei");
+            Console.WriteLine(task.IsDone ? $"    Ja" : "   Nei");
         }
 
         private static List<Task> CreateTasks()
         {
-            return new List<Task>
-            {
-                new Task()
-                {
-                    Name = "Vaske",
-                    DueDate = new DateTime(2023, 11, 22),
-                    isDone = true,
-                },
-                new Task()
-                {
-                    Name = "Rydde",
-                    DueDate = new DateTime(2023, 12, 22),
-                    isDone = false,
-                },
-                new Task()
-                {
-                    Name = "Støvsuge",
-                    DueDate = new DateTime(2023, 11, 22),
-                    isDone = true,
-                },
-            };
+            var taskA = new Task("Vaske", new DateTime(2023, 11, 22));
+            var taskB = new Task("Rydde", new DateTime(2023, 11, 23));
+            var taskC = new Task("Støvsuge", new DateTime(2023, 11, 24));
+            return new List<Task> { taskA, taskB, taskC };
         }
 
         public void MarkDone(int taskNo)
@@ -68,10 +55,7 @@
 
         public void AddTask(string name, DateTime dueDate)
         {
-            var task = new Task();
-            task.Name = name;
-            task.DueDate = dueDate;
-            task.isDone = false;
+            var task = new Task(name, dueDate);
             _tasks.Add(task);
         }
     }
