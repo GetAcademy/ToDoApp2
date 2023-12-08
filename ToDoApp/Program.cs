@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using ToDoApp;
+﻿using ToDoApp;
 
 class Program
 {
@@ -64,23 +63,5 @@ class Program
             dueDate = DateTime.Today;
         }
         myTasks.AddTask(name, dueDate);
-
-        // Denne ifen med dato må jeg høre om, er fra chatGPT
-        // begge ifer som tar imot tall som int
     }
-
-
-
-
-
 }
-
-
-
-//var myTasks = new Tasks[] {myTask1, myTask2, myTask3};
-//var myTask = new Tasks[3];
-//myTask[0] = myTask1;
-
-
-//var tasks = new List<Task>();
-//tasks.AddTask(task1);
