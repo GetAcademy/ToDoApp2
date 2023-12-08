@@ -2,6 +2,11 @@
 
 class Program
 {
+    /*
+     * Modellere virkeligheten
+     * DRY - også gjentakelser på høyere nivå
+     * Pakke inn kompleksitet
+     */
     static void Main(string[] args)
     {
         var tasks = new TaskCollection();

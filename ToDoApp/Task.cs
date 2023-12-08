@@ -2,9 +2,9 @@
 {
     internal class Task
     {
-        public string Name;
-        public DateTime DueDate;
-        public bool isDone;
+        public string Name { get;  }
+        public DateTime DueDate { get; private set; }
+        public bool isDone { get; private set; }
 
         public void MarkDone()
         {
